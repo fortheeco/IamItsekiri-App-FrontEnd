@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:oneitsekiri_flutter/utils/extensions.dart';
+import 'package:oneitsekiri_flutter/components/overlays.dart';
 import 'package:oneitsekiri_flutter/shared/app_texts.dart';
 
 class ChooseAuthRoute extends StatelessWidget {
@@ -18,7 +20,7 @@ class ChooseAuthRoute extends StatelessWidget {
             ),
           ),
         ),
-        gradientOverlay(context),
+        darkGradientOverlay(context),
         SizedBox(
           width: MediaQuery.sizeOf(context).width,
           child: Column(
@@ -37,6 +39,8 @@ class ChooseAuthRoute extends StatelessWidget {
               ),
               39.sbH,
               ElevatedButton(
+                style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
+                    fixedSize: MaterialStatePropertyAll(Size(323.w, 41.h))),
                 onPressed: () {
                   Navigator.pushNamed(context, '/register');
                 },
@@ -56,25 +60,5 @@ class ChooseAuthRoute extends StatelessWidget {
         )
       ],
     ));
-  }
-
-  Container gradientOverlay(BuildContext context) {
-    return Container(
-        width: MediaQuery.sizeOf(context).width,
-        height: MediaQuery.sizeOf(context).height,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomCenter,
-            end: Alignment.topCenter,
-            colors: [
-              Colors.black.withOpacity(0.7),
-              Colors.black.withOpacity(0.5),
-              Colors.black.withOpacity(0.2),
-              Colors.transparent,
-            ],
-            stops: const [0.0, 0.3, 0.7, 1.0],
-          ),
-        ),
-      );
   }
 }

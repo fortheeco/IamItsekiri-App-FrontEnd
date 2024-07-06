@@ -4,30 +4,50 @@ import 'typography.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final ThemeData appTheme = ThemeData(
-    primaryColor: Palette.primary,
+    primaryColor: Palette.whiteA,
     colorScheme: const ColorScheme(
         brightness: Brightness.light,
-        primary: Palette.primary,
+        primary: Palette.whiteA,
         onPrimary: Palette.surface,
-        secondary: Palette.secondary,
-        onSecondary: Palette.onSecondary,
+        secondary: Palette.darkC,
+        onSecondary: Palette.whiteA,
         error: Colors.red,
         onError: Palette.surface,
-        background: Palette.background,
-        onBackground: Palette.onBackground,
+        background: Palette.whiteB,
+        onBackground: Palette.darkA,
         surface: Palette.surface,
-        onSurface: Palette.onBackground),
+        onSurface: Palette.darkA),
     textTheme: TextTheme(
       displayLarge: AppTypography.displayLarge,
+      headlineLarge: AppTypography.headlineLarge,
+      headlineMedium: AppTypography.headlineMedium,
+      headlineSmall: AppTypography.headlineSmall,
       bodyMedium: AppTypography.bodyMedium,
       bodyLarge: AppTypography.bodyLarge,
       bodySmall: AppTypography.bodySmall,
     ),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Palette.darkD,
+      foregroundColor: Palette.whiteA,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      constraints: BoxConstraints(minHeight: 52.h),
+      border: const OutlineInputBorder(
+        borderSide: BorderSide(color: Palette.whiteC),
+      ),
+      enabledBorder: const OutlineInputBorder(
+        borderSide: BorderSide(color: Palette.whiteC),
+      ),
+      focusedBorder: const OutlineInputBorder(
+        borderSide: BorderSide(color: Color(0xFF838383)),
+      ),
+      floatingLabelBehavior: FloatingLabelBehavior.never,
+      labelStyle: AppTypography.bodyLargeGrey,
+    ),
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-           fixedSize: Size(323.w, 41.h),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(5.r),
-      ),
-      textStyle: AppTypography.elevatedButtonText
-    )));
+            fixedSize: Size(323.w, 50.h),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.r),
+            ),
+            textStyle: AppTypography.elevatedButtonText)));
