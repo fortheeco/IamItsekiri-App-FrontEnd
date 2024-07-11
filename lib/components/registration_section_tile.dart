@@ -18,7 +18,13 @@ class SectionTitle extends StatelessWidget {
       children: [
         Text(title, style: Theme.of(context).textTheme.headlineLarge),
         7.sbH,
-        Text(subtitle),
+        Text(
+          subtitle,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium
+              ?.copyWith(fontFamily: "Inter"),
+        ),
       ],
     );
   }

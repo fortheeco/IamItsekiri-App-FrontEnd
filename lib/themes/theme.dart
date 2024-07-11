@@ -4,6 +4,7 @@ import 'typography.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 final ThemeData appTheme = ThemeData(
+    scaffoldBackgroundColor: Palette.whiteA,
     primaryColor: Palette.whiteA,
     colorScheme: const ColorScheme(
         brightness: Brightness.light,
@@ -31,6 +32,7 @@ final ThemeData appTheme = ThemeData(
       foregroundColor: Palette.whiteA,
     ),
     inputDecorationTheme: InputDecorationTheme(
+      contentPadding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 0),
       constraints: BoxConstraints(minHeight: 52.h),
       border: const OutlineInputBorder(
         borderSide: BorderSide(color: Palette.whiteC),
@@ -49,5 +51,6 @@ final ThemeData appTheme = ThemeData(
             fixedSize: Size(323.w, 50.h),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5.r),
+              side: const BorderSide(color: Palette.surface),
             ),
             textStyle: AppTypography.elevatedButtonText)));

@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:oneitsekiri_flutter/utils/extensions.dart';
 import 'package:oneitsekiri_flutter/components/overlays.dart';
 import 'package:oneitsekiri_flutter/shared/app_texts.dart';
+import 'package:oneitsekiri_flutter/screens/auth/sign_up.dart';
+import 'package:oneitsekiri_flutter/screens/auth/sign_in.dart';
 
 class ChooseAuthRoute extends StatelessWidget {
   const ChooseAuthRoute({super.key});
@@ -42,13 +44,14 @@ class ChooseAuthRoute extends StatelessWidget {
                 style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
                     fixedSize: MaterialStatePropertyAll(Size(323.w, 41.h))),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/register');
+                  Navigator.pushNamed(context, SignInScreen.routeName);
                 },
-                child: const Text('Register'),
+                child: const Text('I Am Itsekiri'),
               ),
-              // 5.sbH,
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, SignupScreen.routeName);
+                },
                 child: Text(
                   "Continue as guest",
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(

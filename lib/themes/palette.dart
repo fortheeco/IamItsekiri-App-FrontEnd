@@ -4,8 +4,10 @@ class Palette {
   static const Color whiteA = Color(0xFFFFFFFF);
   static const Color whiteB = Color(0xFFF2F2F2);
   static const Color whiteC = Color(0xFFCBD5E1);
-  static const Color greyA = Color(0xFF94A3B8);
-  static const Color greyBlueA = Color(0xFF475569);
+  static const Color greyA = Color(0xFF6B6B6B);
+  static const Color greyB = Color(0xFFD8D8D8);
+  static const Color greyBlueA = Color(0xFF94A3B8);
+  static const Color greyBlueB = Color(0xFF475569);
   static const Color darkA = Color(0xFF1E1E1E);
   static const Color darkB = Color(0xFF130001);
   static const Color darkC = Color(0xFF340305);

@@ -66,6 +66,14 @@ extension Log on Object {
   }
 }
 
+extension LogString on String? {
+  void logString() {
+    if (kDebugMode) {
+      print(toString());
+    }
+  }
+}
+
 extension InkWellExtension on Widget {
   InkWell tap({
     required GestureTapCallback? onTap,

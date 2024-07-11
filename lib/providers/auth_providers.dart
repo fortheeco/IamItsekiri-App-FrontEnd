@@ -7,3 +7,6 @@ final formProvider =
 
 final signupProvider = StateNotifierProvider<SignupNotifier, void>(
     (ref) => SignupNotifier(ref: ref));
+
+final signInProvider = StateNotifierProvider<SignInNotifier, void>(
+    (ref) => SignInNotifier(ref: ref));
