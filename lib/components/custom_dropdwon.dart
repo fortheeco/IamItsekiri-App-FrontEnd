@@ -1,25 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:oneitsekiri_flutter/themes/typography.dart';
 import 'package:oneitsekiri_flutter/utils/extensions.dart';
 import 'package:oneitsekiri_flutter/themes/palette.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-// DropdownButton<String> androidDropdown(
-//     void Function(String?) onChanged, String? selectedCurrency) {
-//   return DropdownButton<String>(
-//     value: selectedCurrency,
-//     items: const [
-//       DropdownMenuItem<String>(
-//         value: "",
-//         child: Text(""),
-//       )
-//     ],
-//     onChanged: (value) {
-//       onChanged(value);
-//     },
-//   );
-// }
 
 String? selectedValue;
 
@@ -56,7 +41,7 @@ class CustomDropdown extends StatelessWidget {
         if (label != null && label!.isNotEmpty) 7.sbH,
         DropdownButtonFormField2<String>(
           isExpanded: true,
-          decoration: const InputDecoration(contentPadding: EdgeInsets.zero),
+          decoration: InputDecoration(contentPadding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 0)),
           hint: Text(hintText,
               style: Theme.of(context)
                   .textTheme

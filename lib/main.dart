@@ -25,11 +25,12 @@ class MyApp extends StatelessWidget {
       useInheritedMediaQuery: true,
       designSize: const Size(393, 940),
       builder: (context, child) => MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'OneItsekiri',
-          theme: appTheme,
-          initialRoute: '/',
-          routes: routes),
+        debugShowCheckedModeBanner: false,
+        title: 'OneItsekiri',
+        theme: appTheme,
+        initialRoute: '/',
+        onGenerateRoute: generateRoute,
+      ),
     );
   }
 }

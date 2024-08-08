@@ -32,6 +32,7 @@ final ThemeData appTheme = ThemeData(
       foregroundColor: Palette.whiteA,
     ),
     inputDecorationTheme: InputDecorationTheme(
+      errorStyle: AppTypography.redBodyMedium,
       contentPadding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 0),
       constraints: BoxConstraints(minHeight: 52.h),
       border: const OutlineInputBorder(
@@ -54,3 +55,6 @@ final ThemeData appTheme = ThemeData(
               side: const BorderSide(color: Palette.surface),
             ),
             textStyle: AppTypography.elevatedButtonText)));
+
+
+

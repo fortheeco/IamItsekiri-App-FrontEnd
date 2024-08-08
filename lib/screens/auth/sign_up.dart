@@ -10,6 +10,7 @@ import 'package:oneitsekiri_flutter/components/custom_input_field.dart';
 import 'package:oneitsekiri_flutter/components/custom_dropdwon.dart';
 import 'package:oneitsekiri_flutter/screens/auth/sign_in.dart';
 import 'package:oneitsekiri_flutter/themes/typography.dart';
+import 'package:oneitsekiri_flutter/utils/enums.dart';
 
 class SignupScreen extends ConsumerWidget {
   static const String routeName = "signUp";
@@ -26,7 +27,6 @@ class SignupScreen extends ConsumerWidget {
     final formState = ref.watch(formProvider);
     final formNotifier = ref.read(formProvider.notifier);
     final signupNotifier = ref.read(signupProvider.notifier);
-    // formState.isLoading.log();
 
     return Scaffold(
       appBar: const CustomAppBar(),
@@ -50,20 +50,28 @@ class SignupScreen extends ConsumerWidget {
                     hintText: 'John Martins',
                     validatorText: 'Please enter your name',
                     onChanged: (value) => formNotifier.setName(value),
+                    inputType: InputType.name,
                   ),
                   16.sbH,
                   CustomInputField(
+                    keyboardType: TextInputType.phone,
                     label: 'Phone number',
                     hintText: '+234 | enter your phone number',
                     validatorText: 'Please enter your phone number',
-                    onChanged: (value) => formNotifier.setPhone(value),
+                    onChanged: (value) {
+                      final phoneNumber = int.tryParse(value) ?? 0;
+                      formNotifier.setPhone(phoneNumber);
+                    },
+                    inputType: InputType.phone,
                   ),
                   16.sbH,
                   CustomInputField(
+                    keyboardType: TextInputType.emailAddress,
                     label: 'Email Address',
                     hintText: 'example@email.com',
                     validatorText: 'Please enter your email',
                     onChanged: (value) => formNotifier.setEmail(value),
+                    inputType: InputType.email,
                   ),
                   16.sbH,
                   CustomDropdown(
@@ -71,7 +79,7 @@ class SignupScreen extends ConsumerWidget {
                     items: genderItems,
                     hintText: 'Select your gender',
                     validatorText: 'Please select your gender',
-                    onChanged: (value) => formNotifier.setEmail(value!),
+                    onChanged: (value) => formNotifier.setGender(value!),
                   ),
                   16.sbH,
                   CustomInputField(
@@ -79,7 +87,8 @@ class SignupScreen extends ConsumerWidget {
                     customValidator: true,
                     hintText: 'What are you popularly called?',
                     validatorText: 'Please enter your nickname',
-                    onChanged: (value) => formNotifier.setEmail(value),
+                    onChanged: (value) => formNotifier.setNickname(value),
+                    inputType: InputType.name,
                   ),
                   16.sbH,
                   CustomInputField(
@@ -88,10 +97,10 @@ class SignupScreen extends ConsumerWidget {
                     hintText: 'John Martins',
                     validatorText: 'Please identification',
                     onChanged: (value) => formNotifier.setEmail(value),
+                    inputType: InputType.file,
                   ),
                   61.sbH,
                   if (formState.isLoading) const CircularProgressIndicator(),
-                 
                   if (!formState.isLoading)
                     ElevatedButton(
                       onPressed: () {
@@ -125,7 +134,7 @@ class SignupScreen extends ConsumerWidget {
                       ],
                     ),
                   ).tap(onTap: () {
-                    Navigator.pushNamed(context, SignInScreen.routeName);
+                    Navigator.popAndPushNamed(context, SignInScreen.routeName);
                   }),
                 ],
               ),

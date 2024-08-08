@@ -31,7 +31,7 @@ class AppTypography {
     color: Colors.black,
   );
 
-    static TextStyle bodyLargeGrey = GoogleFonts.inter(
+  static TextStyle bodyLargeGrey = GoogleFonts.inter(
     fontSize: 16.sp,
     fontWeight: FontWeight.normal,
     color: Palette.greyBlueA,
@@ -49,9 +49,15 @@ class AppTypography {
     color: Colors.black,
   );
 
-    static TextStyle redBodyMediumBold = GoogleFonts.raleway(
+  static TextStyle redBodyMediumBold = GoogleFonts.raleway(
     fontSize: 14.sp,
     fontWeight: FontWeight.w600,
+    color: Palette.surface,
+  );
+
+  static TextStyle redBodyMedium = GoogleFonts.raleway(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
     color: Palette.surface,
   );
 
