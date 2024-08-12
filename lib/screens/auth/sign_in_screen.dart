@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:oneitsekiri_flutter/components/circular_loader.dart';
 import 'package:oneitsekiri_flutter/components/custom_app_bar.dart';
 import 'package:oneitsekiri_flutter/providers/auth_providers.dart';
 import 'package:oneitsekiri_flutter/components/layout_padding.dart';
@@ -11,7 +12,7 @@ import 'package:oneitsekiri_flutter/utils/enums.dart';
 import 'package:oneitsekiri_flutter/utils/extensions.dart';
 import 'package:oneitsekiri_flutter/components/registration_section_tile.dart';
 import 'package:oneitsekiri_flutter/components/custom_input_field.dart';
-import 'package:oneitsekiri_flutter/screens/auth/sign_up.dart';
+import 'package:oneitsekiri_flutter/screens/auth/sign_up_screen.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
 class SignInScreen extends ConsumerWidget {
@@ -21,9 +22,9 @@ class SignInScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final formState = ref.watch(formProvider);
-    final formNotifier = ref.read(formProvider.notifier);
-    final signInNotifier = ref.read(signInProvider.notifier);
+    final formState = ref.watch(authControllerProvider);
+    final signInNotifier = ref.read(authControllerProvider.notifier);
+    
     return Scaffold(
         appBar: const CustomAppBar(),
         body: SingleChildScrollView(
@@ -71,9 +72,9 @@ class SignInScreen extends ConsumerWidget {
                           onChanged: (value) {
                             if (value.contains(RegExp(r'^[0-9]+$'))) {
                               final phoneNumber = int.tryParse(value) ?? 0;
-                              formNotifier.setPhone(phoneNumber);
+                              signInNotifier.setPhone(phoneNumber);
                             } else {
-                              formNotifier.setEmail(value);
+                              signInNotifier.setEmail(value);
                             }
                           }),
                       16.sbH,
@@ -84,7 +85,7 @@ class SignInScreen extends ConsumerWidget {
                           hintText: "Enter your password",
                           validatorText: "Please Enter your password",
                           onChanged: (value) =>
-                              formNotifier.setPassword(value)),
+                              signInNotifier.setPassword(value)),
                       40.sbH,
                       Text(
                         "Forgot Password?",
@@ -93,12 +94,12 @@ class SignInScreen extends ConsumerWidget {
                       ).tap(onTap: () {}).alignCenterRight(),
                       49.sbH,
                       if (formState.isLoading)
-                        const CircularProgressIndicator(),
+                        const CircularLoader(),
                       if (!formState.isLoading)
                         ElevatedButton(
                             onPressed: () {
                               if (_formKey.currentState?.validate() ?? false) {
-                                signInNotifier.signIn();
+                                // signInNotifier.loginUser();
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                       content: Text('Processing Data')),

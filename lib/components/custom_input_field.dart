@@ -101,6 +101,7 @@ class CustomInputField extends StatelessWidget {
         ),
         7.sbH,
         TextFormField(
+          cursorColor: Palette.greyA,
           obscureText: obscureText,
           onChanged: onChanged,
           keyboardType: keyboardType,

@@ -1,35 +1,37 @@
+import 'dart:io';
+
 class AuthFormState {
   final String email;
   final String password;
   final int phone;
   final String name;
   final String nickname;
-  final String identification;
+  final File identification;
   final String gender;
   final bool isLoading;
-  final String? error;
+  final String? errorMessage;
 
   AuthFormState({
     this.phone = 0,
     this.name = '',
     this.nickname = '',
-    this.identification = '',
+    required this.identification,
     this.gender = '',
     this.email = '',
     this.password = '',
     this.isLoading = false,
-    this.error,
+    this.errorMessage,
   });
 
   AuthFormState copyWith({
     String? email,
     String? password,
     bool? isLoading,
-    String? error,
+    String? errorMessage,
     int? phone,
     String? name,
     String? nickname,
-    String? identification,
+    File? identification,
     String? gender,
   }) {
     return AuthFormState(
@@ -41,7 +43,7 @@ class AuthFormState {
       identification: identification ?? this.identification,
       gender: gender ?? this.gender,
       isLoading: isLoading ?? this.isLoading,
-      error: error ?? this.error,
+      errorMessage: errorMessage ?? this.errorMessage,
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:oneitsekiri_flutter/themes/theme.dart';
 import 'package:oneitsekiri_flutter/routes/app_routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:oneitsekiri_flutter/utils/snack_bar.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(393, 940),
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
+        scaffoldMessengerKey: scaffoldMessengerKey,
         title: 'OneItsekiri',
         theme: appTheme,
         initialRoute: '/',

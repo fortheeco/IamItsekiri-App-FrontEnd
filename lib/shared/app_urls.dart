@@ -1,9 +1,10 @@
 abstract class AppUrls {
   //! baseUrl
-  static const String _baseUrl = "https://bilaldollan.pythonanywhere.com/schema/swagger-ui/";
+  static const String _baseUrl =
+      "https://bilaldollan.pythonanywhere.com";
 
   //! auth
-  static const String userSignUp = '$_baseUrl/accounts/register/';
+  static const String userSignUp = '$_baseUrl/api/v1/user/signup/';
   static const String userLogin = '$_baseUrl/accounts/login/';
   static const String userLogOut = '$_baseUrl/accounts/logout/';
   static const String requestOtp = '$_baseUrl/accounts/request-otp/';

@@ -9,15 +9,16 @@ import 'package:oneitsekiri_flutter/providers/auth_providers.dart';
 import 'package:oneitsekiri_flutter/shared/app_urls.dart';
 import 'package:oneitsekiri_flutter/utils/enums.dart';
 import 'package:oneitsekiri_flutter/utils/extensions.dart';
+import 'package:oneitsekiri_flutter/utils/extract_text.dart';
 import 'package:oneitsekiri_flutter/utils/failure.dart';
 import 'package:oneitsekiri_flutter/utils/network_errors.dart';
 import 'package:oneitsekiri_flutter/utils/type_defs.dart';
 
-class AuthRepository {
+class AuthService {
   final Ref? _ref;
   final Dio? _dio;
   final Dio dioWithNoInterceptor = Dio();
-  AuthRepository({Dio? dio, Ref? ref})
+  AuthService({Dio? dio, Ref? ref})
       : _ref = ref,
         _dio = dio,
         super();
@@ -26,17 +27,25 @@ class AuthRepository {
   FutureEither<String> signUpUser({
     required String email,
     required String password,
-    required String firstName,
-    required String lastName,
-    required String username,
+    required String fullName,
+    required String nickname,
+    required String gender,
+    required File identification,
+    required int phone,
   }) async {
-    Map<String, dynamic> requestBody = {
-      "password": password,
+    FormData requestBody = FormData.fromMap({
       "email": email,
-      "first_name": firstName,
-      "last_name": lastName,
-      'username': username,
-    };
+      "phone_number": phone,
+      "password": password,
+      "first_name": fullName,
+      "last_name": nickname,
+      "gender": gender,
+      if (identification.existsSync())
+        'identification_document': await MultipartFile.fromFile(
+          identification.path,
+          filename: identification.path.split('/').last,
+        ),
+    });
 
     return _makeApiRequest(
         endpoint: AppUrls.userSignUp,
@@ -176,7 +185,7 @@ class AuthRepository {
 }
 
 class AuthInterceptor extends Interceptor {
-  final AuthRepository _authRepository;
+  final AuthService _authRepository;
 
   final Dio _dio;
 
@@ -227,16 +236,14 @@ class AuthInterceptor extends Interceptor {
 
 FutureEither<String> _makeApiRequest({
   required String endpoint,
-  Map<String, dynamic>? requestBody,
+  dynamic requestBody,
   required Dio dio,
   String? endpointName,
   ApiType? apiType,
 }) async {
   try {
-    // Make request
-
+    
     Response<dynamic>? response = await dio.post(endpoint, data: requestBody);
-
     Map<String, dynamic>? responseInMap = response.data;
 
     switch (response.statusCode) {
@@ -272,8 +279,10 @@ FutureEither<String> _makeApiRequest({
       if (response.data is Map<String, dynamic>) {
         final Map<String, dynamic> responseInMap = response.data;
         errorMessage = responseInMap["message"] ?? responseInMap.toString();
+        errorMessage = extractText(errorMessage);
       } else {
         errorMessage = response.data.toString();
+        errorMessage = extractText(errorMessage);
       }
 
       // Log the error
@@ -283,8 +292,8 @@ FutureEither<String> _makeApiRequest({
       // Return the detailed error message
       return left(Failure(errorMessage));
     } else {
-      "$endpoint DioError ${dioError.message}".log();
-      return left(Failure('$endpoint DioError: ${dioError.message}'));
+      "$endpoint DioError $dioError".log();
+      return left(Failure('$endpoint DioError: $dioError'));
     }
   } on SocketException catch (error) {
     "$endpointName Socket Exception ${error.message.toString()}".log();

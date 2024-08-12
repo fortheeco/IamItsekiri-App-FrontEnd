@@ -25,7 +25,7 @@ class SpannedText extends StatelessWidget {
         children: <TextSpan>[
           TextSpan(
               text: after,
-              style: AppTypography.bodyLarge.copyWith(
+              style: AppTypography.raleway16Dark.copyWith(
                   color: Palette.surface,
                   fontFamily: "Inter",
                   decoration: TextDecoration.underline,

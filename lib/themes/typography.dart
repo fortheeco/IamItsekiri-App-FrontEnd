@@ -25,17 +25,34 @@ class AppTypography {
     fontWeight: FontWeight.w600,
     color: Palette.darkB,
   );
-  static TextStyle bodyLarge = GoogleFonts.raleway(
+  static TextStyle raleway16Dark = GoogleFonts.raleway(
     fontSize: 16.sp,
     fontWeight: FontWeight.normal,
     color: Colors.black,
   );
 
-  static TextStyle bodyLargeGrey = GoogleFonts.inter(
+  static TextStyle inter16GreyBlueB = GoogleFonts.inter(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.normal,
+    color: Palette.greyBlueB,
+  );
+  static TextStyle inter16WhiteC = GoogleFonts.inter(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.normal,
+    color: Palette.whiteC,
+  );
+
+  static TextStyle inter16GreyBlueA = GoogleFonts.inter(
     fontSize: 16.sp,
     fontWeight: FontWeight.normal,
     color: Palette.greyBlueA,
   );
+
+  static TextStyle inter16Red = GoogleFonts.inter(
+      fontSize: 16.sp,
+      fontWeight: FontWeight.normal,
+      color: Palette.surface,
+      decorationColor: Palette.surface);
 
   static TextStyle bodyMedium = GoogleFonts.raleway(
     fontSize: 14.sp,
@@ -55,16 +72,28 @@ class AppTypography {
     color: Palette.surface,
   );
 
-  static TextStyle redBodyMedium = GoogleFonts.raleway(
+  static TextStyle raleway14Red = GoogleFonts.raleway(
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
     color: Palette.surface,
   );
 
-  static TextStyle bodySmall = GoogleFonts.raleway(
-    fontSize: 10.sp,
+  static TextStyle raleway14Dark = GoogleFonts.raleway(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    color: Palette.surface,
+  );
+
+  static TextStyle elevatedButtonText = GoogleFonts.inter(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w600,
+    color: Palette.elevatedButtonTextColor,
+  );
+
+  static TextStyle inter12Red = GoogleFonts.inter(
+    fontSize: 12.sp,
     fontWeight: FontWeight.normal,
-    color: Colors.black,
+    color: Palette.surface,
   );
 
   static TextStyle caption = GoogleFonts.raleway(
@@ -72,10 +101,9 @@ class AppTypography {
     fontWeight: FontWeight.normal,
     color: Colors.black,
   );
-
-  static TextStyle elevatedButtonText = GoogleFonts.inter(
-    fontSize: 14.sp,
-    fontWeight: FontWeight.w600,
-    color: Palette.elevatedButtonTextColor,
+  static TextStyle bodySmall = GoogleFonts.raleway(
+    fontSize: 10.sp,
+    fontWeight: FontWeight.normal,
+    color: Colors.black,
   );
 }

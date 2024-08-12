@@ -24,7 +24,7 @@ final ThemeData appTheme = ThemeData(
       headlineMedium: AppTypography.headlineMedium,
       headlineSmall: AppTypography.headlineSmall,
       bodyMedium: AppTypography.bodyMedium,
-      bodyLarge: AppTypography.bodyLarge,
+      bodyLarge: AppTypography.raleway16Dark,
       bodySmall: AppTypography.bodySmall,
     ),
     appBarTheme: const AppBarTheme(
@@ -32,7 +32,7 @@ final ThemeData appTheme = ThemeData(
       foregroundColor: Palette.whiteA,
     ),
     inputDecorationTheme: InputDecorationTheme(
-      errorStyle: AppTypography.redBodyMedium,
+      errorStyle: AppTypography.raleway14Red,
       contentPadding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 0),
       constraints: BoxConstraints(minHeight: 52.h),
       border: const OutlineInputBorder(
@@ -45,7 +45,7 @@ final ThemeData appTheme = ThemeData(
         borderSide: BorderSide(color: Color(0xFF838383)),
       ),
       floatingLabelBehavior: FloatingLabelBehavior.never,
-      labelStyle: AppTypography.bodyLargeGrey,
+      labelStyle: AppTypography.inter16GreyBlueA,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -55,6 +55,3 @@ final ThemeData appTheme = ThemeData(
               side: const BorderSide(color: Palette.surface),
             ),
             textStyle: AppTypography.elevatedButtonText)));
-
-
-

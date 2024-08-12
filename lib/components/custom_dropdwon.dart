@@ -41,7 +41,7 @@ class CustomDropdown extends StatelessWidget {
         if (label != null && label!.isNotEmpty) 7.sbH,
         DropdownButtonFormField2<String>(
           isExpanded: true,
-          decoration: InputDecoration(contentPadding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 0)),
+          decoration: InputDecoration(contentPadding: EdgeInsets.fromLTRB(0.w, 0, 16.w, 0)),
           hint: Text(hintText,
               style: Theme.of(context)
                   .textTheme
@@ -52,7 +52,7 @@ class CustomDropdown extends StatelessWidget {
                     value: item,
                     child: Text(
                       item,
-                      style: AppTypography.bodyLarge,
+                      style: AppTypography.raleway16Dark,
                     ),
                   ))
               .toList(),

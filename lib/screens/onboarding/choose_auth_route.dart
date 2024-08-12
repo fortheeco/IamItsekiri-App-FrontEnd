@@ -4,8 +4,8 @@ import 'package:oneitsekiri_flutter/components/route_generators.dart.dart';
 import 'package:oneitsekiri_flutter/utils/extensions.dart';
 import 'package:oneitsekiri_flutter/components/overlays.dart';
 import 'package:oneitsekiri_flutter/shared/app_texts.dart';
-import 'package:oneitsekiri_flutter/screens/auth/sign_up.dart';
-import 'package:oneitsekiri_flutter/screens/auth/sign_in.dart';
+import 'package:oneitsekiri_flutter/screens/auth/sign_up_screen.dart';
+import 'package:oneitsekiri_flutter/screens/auth/sign_in_screen.dart';
 
 class ChooseAuthRoute extends StatelessWidget {
   const ChooseAuthRoute({super.key});

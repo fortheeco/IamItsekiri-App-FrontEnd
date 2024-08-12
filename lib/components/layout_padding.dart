@@ -10,7 +10,7 @@ class LayoutPadding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: padding ?? EdgeInsets.fromLTRB(30.w, 30.h, 30.w, 26.h),
+      padding: padding ?? EdgeInsets.fromLTRB(30.w, 30.h, 30.w, 56.h),
       child: child,
     );
   }

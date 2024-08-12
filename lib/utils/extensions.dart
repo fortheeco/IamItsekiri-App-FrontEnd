@@ -1,6 +1,85 @@
 import 'package:flutter/material.dart';
 import "package:flutter/foundation.dart";
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:oneitsekiri_flutter/themes/typography.dart';
+
+extension StyledTextExtension16 on String {
+  Text ralewayTxt16({
+    Color? color,
+    FontWeight? fontWeight,
+    String? fontFamily,
+    FontStyle? fontStyle,
+    TextOverflow? overflow,
+    TextDecoration? decoration,
+    TextAlign? textAlign,
+    int? maxLines,
+    double? height,
+    TextStyle? style,
+  }) {
+    return Text(this,
+        overflow: overflow,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        style: style ?? AppTypography.raleway16Dark);
+  }
+
+  Text ralewayTxt14({
+    Color? color,
+    FontWeight? fontWeight,
+    String? fontFamily,
+    FontStyle? fontStyle,
+    TextOverflow? overflow,
+    TextDecoration? decoration,
+    TextAlign? textAlign,
+    int? maxLines,
+    double? height,
+    TextStyle? style,
+  }) {
+    return Text(this,
+        overflow: overflow,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        style: style ?? AppTypography.raleway14Dark);
+  }
+
+  Text interTxt12({
+    Color? color,
+    FontWeight? fontWeight,
+    TextStyle? style,
+    String? fontFamily,
+    FontStyle? fontStyle,
+    TextOverflow? overflow,
+    TextDecoration? decoration,
+    TextAlign? textAlign,
+    int? maxLines,
+    double? height,
+  }) {
+    return Text(this,
+        overflow: overflow,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        style: style);
+  }
+
+  Text interTxt16({
+    Color? color,
+    FontWeight? fontWeight,
+    TextStyle? style,
+    String? fontFamily,
+    FontStyle? fontStyle,
+    TextOverflow? overflow,
+    TextDecoration? decoration,
+    TextAlign? textAlign,
+    int? maxLines,
+    double? height,
+  }) {
+    return Text(this,
+        overflow: overflow,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        style: style ?? AppTypography.inter16GreyBlueA);
+  }
+}
 
 extension PaddingExtension on Widget {
   Widget paddingAll(double value) => Padding(
