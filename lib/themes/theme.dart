@@ -10,7 +10,7 @@ final ThemeData appTheme = ThemeData(
         brightness: Brightness.light,
         primary: Palette.whiteA,
         onPrimary: Palette.surface,
-        secondary: Palette.darkC,
+        secondary: Palette.darkRedB,
         onSecondary: Palette.whiteA,
         error: Colors.red,
         onError: Palette.surface,
@@ -18,17 +18,22 @@ final ThemeData appTheme = ThemeData(
         onBackground: Palette.darkA,
         surface: Palette.surface,
         onSurface: Palette.darkA),
+    textSelectionTheme: const TextSelectionThemeData(
+      selectionHandleColor: Colors.transparent,
+      selectionColor: Palette.greyBlueB,
+      cursorColor: Palette.darkA,
+    ),
     textTheme: TextTheme(
       displayLarge: AppTypography.displayLarge,
       headlineLarge: AppTypography.headlineLarge,
       headlineMedium: AppTypography.headlineMedium,
       headlineSmall: AppTypography.headlineSmall,
-      bodyMedium: AppTypography.bodyMedium,
-      bodyLarge: AppTypography.raleway16Dark,
+      bodyMedium: AppTypography.raleway14DarkA,
+      bodyLarge: AppTypography.raleway16,
       bodySmall: AppTypography.bodySmall,
     ),
     appBarTheme: const AppBarTheme(
-      backgroundColor: Palette.darkD,
+      backgroundColor: Palette.darkRedA,
       foregroundColor: Palette.whiteA,
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -46,6 +51,7 @@ final ThemeData appTheme = ThemeData(
       ),
       floatingLabelBehavior: FloatingLabelBehavior.never,
       labelStyle: AppTypography.inter16GreyBlueA,
+      hintStyle: AppTypography.inter16GreyBlueA,
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(

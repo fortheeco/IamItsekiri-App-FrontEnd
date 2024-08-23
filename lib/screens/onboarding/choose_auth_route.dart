@@ -8,6 +8,7 @@ import 'package:oneitsekiri_flutter/screens/auth/sign_up_screen.dart';
 import 'package:oneitsekiri_flutter/screens/auth/sign_in_screen.dart';
 
 class ChooseAuthRoute extends StatelessWidget {
+  static const String routeName = "choose_auth";
   const ChooseAuthRoute({super.key});
 
   @override

@@ -5,7 +5,7 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:oneitsekiri_flutter/utils/enums.dart';
 
 class CustomInputField extends StatelessWidget {
-  final String label;
+  final String? label;
   final String hintText;
   final bool obscureText;
   final String? validatorText;
@@ -14,11 +14,17 @@ class CustomInputField extends StatelessWidget {
   final void Function(String) onChanged;
   final String? Function(String?)? validator;
   final InputType? inputType;
+  final int? maxLines;
+  final int? minLines;
+  final EdgeInsetsGeometry? contentPadding;
 
   const CustomInputField({
     super.key,
     this.keyboardType,
-    required this.label,
+    this.label,
+    this.maxLines = 1,
+    this.minLines,
+    this.contentPadding,
     required this.hintText,
     this.obscureText = false,
     this.validatorText,
@@ -92,21 +98,28 @@ class CustomInputField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
-          label,
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium
-              ?.copyWith(fontFamily: "inter", color: Palette.greyBlueB),
-        ),
+        label != null && label!.isNotEmpty
+            ? (Text(
+                label!,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(fontFamily: "inter", color: Palette.greyBlueB),
+              ))
+            : const SizedBox.shrink(),
         7.sbH,
         TextFormField(
+          minLines: minLines,
+          maxLines: maxLines,
           cursorColor: Palette.greyA,
           obscureText: obscureText,
           onChanged: onChanged,
           keyboardType: keyboardType,
           decoration: InputDecoration(
-            labelText: hintText,
+            // labelText: hintText,
+            hintText: hintText,
+            contentPadding: contentPadding ??
+                Theme.of(context).inputDecorationTheme.contentPadding,
             border: const OutlineInputBorder(),
           ),
           validator: customValidator

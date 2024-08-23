@@ -13,21 +13,38 @@ class AppTypography {
   static TextStyle headlineLarge = GoogleFonts.raleway(
     fontSize: 24.sp,
     fontWeight: FontWeight.w600,
-    color: Palette.darkB,
+    color: Palette.darkRedB,
   );
+
+  static TextStyle inter24DarkBlue = GoogleFonts.raleway(
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w400,
+    color: Palette.darkBlueA,
+  );
+
   static TextStyle headlineMedium = GoogleFonts.raleway(
     fontSize: 20.sp,
     fontWeight: FontWeight.w600,
-    color: Palette.darkB,
+    color: Palette.darkRedB,
   );
   static TextStyle headlineSmall = GoogleFonts.raleway(
     fontSize: 18.sp,
     fontWeight: FontWeight.w600,
-    color: Palette.darkB,
+    color: Palette.darkRedB,
   );
-  static TextStyle raleway16Dark = GoogleFonts.raleway(
+  static TextStyle raleway20 = GoogleFonts.raleway(
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w600,
+    color: Palette.darkRedA,
+  );
+  static TextStyle raleway18 = GoogleFonts.raleway(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w600,
+    color: Palette.whiteA,
+  );
+  static TextStyle raleway16 = GoogleFonts.raleway(
     fontSize: 16.sp,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w400,
     color: Colors.black,
   );
 
@@ -45,7 +62,7 @@ class AppTypography {
   static TextStyle inter16GreyBlueA = GoogleFonts.inter(
     fontSize: 16.sp,
     fontWeight: FontWeight.normal,
-    color: Palette.greyBlueA,
+    color: Palette.greyBlueB,
   );
 
   static TextStyle inter16Red = GoogleFonts.inter(
@@ -54,31 +71,31 @@ class AppTypography {
       color: Palette.surface,
       decorationColor: Palette.surface);
 
-  static TextStyle bodyMedium = GoogleFonts.raleway(
+  static TextStyle inter14WhiteA = GoogleFonts.inter(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.normal,
+    color: Palette.whiteA,
+  );
+
+  static TextStyle raleway14DarkA = GoogleFonts.raleway(
     fontSize: 14.sp,
     fontWeight: FontWeight.normal,
     color: Palette.darkA,
   );
 
-  static TextStyle bodyMediumBold = GoogleFonts.raleway(
+  static TextStyle raleway14DarkBold = GoogleFonts.raleway(
     fontSize: 14.sp,
     fontWeight: FontWeight.w600,
     color: Colors.black,
   );
 
-  static TextStyle redBodyMediumBold = GoogleFonts.raleway(
+  static TextStyle raleway14RedBold = GoogleFonts.raleway(
     fontSize: 14.sp,
     fontWeight: FontWeight.w600,
     color: Palette.surface,
   );
 
   static TextStyle raleway14Red = GoogleFonts.raleway(
-    fontSize: 14.sp,
-    fontWeight: FontWeight.w400,
-    color: Palette.surface,
-  );
-
-  static TextStyle raleway14Dark = GoogleFonts.raleway(
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
     color: Palette.surface,
@@ -96,6 +113,21 @@ class AppTypography {
     color: Palette.surface,
   );
 
+  static TextStyle inter12WhiteA = GoogleFonts.inter(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.normal,
+    color: Palette.whiteA,
+  );
+  static TextStyle raleway12 = GoogleFonts.raleway(
+    fontSize: 12.sp,
+    fontWeight: FontWeight.normal,
+    color: Palette.darkB,
+  );
+  static TextStyle raleway9 = GoogleFonts.raleway(
+    fontSize: 10.sp,
+    fontWeight: FontWeight.w400,
+    color: Palette.greyB,
+  );
   static TextStyle caption = GoogleFonts.raleway(
     fontSize: 10.sp,
     fontWeight: FontWeight.normal,

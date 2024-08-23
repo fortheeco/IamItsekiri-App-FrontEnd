@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import "package:flutter/foundation.dart";
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:oneitsekiri_flutter/themes/palette.dart';
 import 'package:oneitsekiri_flutter/themes/typography.dart';
 
 extension StyledTextExtension16 on String {
-  Text ralewayTxt16({
+  Text ralewayTxt9({
     Color? color,
     FontWeight? fontWeight,
     String? fontFamily,
@@ -20,26 +21,8 @@ extension StyledTextExtension16 on String {
         overflow: overflow,
         textAlign: textAlign,
         maxLines: maxLines,
-        style: style ?? AppTypography.raleway16Dark);
-  }
-
-  Text ralewayTxt14({
-    Color? color,
-    FontWeight? fontWeight,
-    String? fontFamily,
-    FontStyle? fontStyle,
-    TextOverflow? overflow,
-    TextDecoration? decoration,
-    TextAlign? textAlign,
-    int? maxLines,
-    double? height,
-    TextStyle? style,
-  }) {
-    return Text(this,
-        overflow: overflow,
-        textAlign: textAlign,
-        maxLines: maxLines,
-        style: style ?? AppTypography.raleway14Dark);
+        style: style ??
+            AppTypography.raleway9.copyWith(color: color ?? Palette.greyB));
   }
 
   Text interTxt12({
@@ -58,7 +41,92 @@ extension StyledTextExtension16 on String {
         overflow: overflow,
         textAlign: textAlign,
         maxLines: maxLines,
-        style: style);
+        style: style ??
+            AppTypography.inter12WhiteA
+                .copyWith(color: color ?? Palette.whiteA));
+  }
+
+  Text ralewayTxt12({
+    Color? color,
+    FontWeight? fontWeight,
+    TextStyle? style,
+    String? fontFamily,
+    FontStyle? fontStyle,
+    TextOverflow? overflow,
+    TextDecoration? decoration,
+    TextAlign? textAlign,
+    int? maxLines,
+    double? height,
+  }) {
+    return Text(this,
+        overflow: overflow,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        style: style ??
+            AppTypography.raleway12
+                .copyWith(color: color ?? Palette.darkB));
+  }
+
+  Text interTxt14({
+    Color? color,
+    FontWeight? fontWeight,
+    TextStyle? style,
+    String? fontFamily,
+    FontStyle? fontStyle,
+    TextOverflow? overflow,
+    TextDecoration? decoration,
+    TextAlign? textAlign,
+    int? maxLines,
+    double? height,
+  }) {
+    return Text(this,
+        overflow: overflow,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        style: style ?? AppTypography.inter14WhiteA);
+  }
+
+  Text ralewayTxt14({
+    Color? color,
+    FontWeight? fontWeight,
+    String? fontFamily,
+    FontStyle? fontStyle,
+    TextOverflow? overflow,
+    TextDecoration? decoration,
+    TextAlign? textAlign,
+    int? maxLines,
+    double? height,
+    TextStyle? style,
+  }) {
+    return Text(this,
+        overflow: overflow,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        style: style ??
+            AppTypography.raleway14Red
+                .copyWith(color: color ?? Palette.surface));
+  }
+
+  Text ralewayTxt16({
+    Color? color,
+    FontWeight? fontWeight,
+    String? fontFamily,
+    FontStyle? fontStyle,
+    TextOverflow? overflow,
+    TextDecoration? decoration,
+    TextAlign? textAlign,
+    int? maxLines,
+    double? height,
+    TextStyle? style,
+  }) {
+    return Text(this,
+        overflow: overflow,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        style: style ??
+            AppTypography.raleway16.copyWith(
+                color: color ?? Palette.darkA,
+                fontWeight: fontWeight ?? FontWeight.w400));
   }
 
   Text interTxt16({
@@ -77,7 +145,49 @@ extension StyledTextExtension16 on String {
         overflow: overflow,
         textAlign: textAlign,
         maxLines: maxLines,
-        style: style ?? AppTypography.inter16GreyBlueA);
+        style: style ??
+            AppTypography.inter16GreyBlueA
+                .copyWith(color: color ?? Palette.greyBlueA));
+  }
+
+  Text ralewayTxt18({
+    Color? color,
+    FontWeight? fontWeight,
+    String? fontFamily,
+    FontStyle? fontStyle,
+    TextOverflow? overflow,
+    TextDecoration? decoration,
+    TextAlign? textAlign,
+    int? maxLines,
+    double? height,
+    TextStyle? style,
+  }) {
+    return Text(this,
+        overflow: overflow,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        style: style ??
+            AppTypography.raleway18.copyWith(color: color ?? Palette.whiteA));
+  }
+
+  Text ralewayTxt20({
+    Color? color,
+    FontWeight? fontWeight,
+    String? fontFamily,
+    FontStyle? fontStyle,
+    TextOverflow? overflow,
+    TextDecoration? decoration,
+    TextAlign? textAlign,
+    int? maxLines,
+    double? height,
+    TextStyle? style,
+  }) {
+    return Text(this,
+        overflow: overflow,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        style: style ??
+            AppTypography.raleway20.copyWith(color: color ?? Palette.darkRedA));
   }
 }
 

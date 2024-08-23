@@ -46,13 +46,13 @@ class CustomDropdown extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .titleMedium
-                  ?.copyWith(color: Palette.greyBlueA)),
+                  ?.copyWith(color: Palette.greyBlueB)),
           // style: AppTypography.bodyLargeGrey,
           items: items?.map((item) => DropdownMenuItem<String>(
                     value: item,
                     child: Text(
                       item,
-                      style: AppTypography.raleway16Dark,
+                      style: AppTypography.raleway16,
                     ),
                   ))
               .toList(),

@@ -23,9 +23,10 @@ class SignInScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final formState = ref.watch(authControllerProvider);
-    final signInNotifier = ref.read(authControllerProvider.notifier);
-    
+    final authController = ref.read(authControllerProvider.notifier);
+
     return Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: const CustomAppBar(),
         body: SingleChildScrollView(
           child: SizedBox(
@@ -56,6 +57,7 @@ class SignInScreen extends ConsumerWidget {
                       CustomInputField(
                           label: "Email or Phone number",
                           hintText: "Enter your email or phone number",
+                          keyboardType: TextInputType.emailAddress,
                           customValidator: true,
                           validator: FormBuilderValidators.compose([
                             FormBuilderValidators.required(),
@@ -71,10 +73,9 @@ class SignInScreen extends ConsumerWidget {
                           ]),
                           onChanged: (value) {
                             if (value.contains(RegExp(r'^[0-9]+$'))) {
-                              final phoneNumber = int.tryParse(value) ?? 0;
-                              signInNotifier.setPhone(phoneNumber);
+                              authController.setPhone(value);
                             } else {
-                              signInNotifier.setEmail(value);
+                              authController.setEmail(value);
                             }
                           }),
                       16.sbH,
@@ -84,26 +85,26 @@ class SignInScreen extends ConsumerWidget {
                           label: "Password",
                           hintText: "Enter your password",
                           validatorText: "Please Enter your password",
+                          customValidator: true,
                           onChanged: (value) =>
-                              signInNotifier.setPassword(value)),
+                              authController.setPassword(value)),
                       40.sbH,
                       Text(
                         "Forgot Password?",
-                        style: AppTypography.bodyMediumBold
+                        style: AppTypography.raleway14DarkBold
                             .copyWith(color: Palette.surface),
                       ).tap(onTap: () {}).alignCenterRight(),
                       49.sbH,
-                      if (formState.isLoading)
-                        const CircularLoader(),
+                      if (formState.isLoading) const CircularLoader(),
                       if (!formState.isLoading)
                         ElevatedButton(
                             onPressed: () {
                               if (_formKey.currentState?.validate() ?? false) {
-                                // signInNotifier.loginUser();
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                      content: Text('Processing Data')),
-                                );
+                                FocusManager.instance.primaryFocus?.unfocus();
+                                authController.loginUser(
+                                    context: context,
+                                    email: formState.email,
+                                    password: formState.password);
                               }
                             },
                             child: const Text("Login")),
@@ -142,7 +143,7 @@ class WhiteButton extends StatelessWidget {
         },
         child: Text(
           "Continue as guest",
-          style: AppTypography.redBodyMediumBold,
+          style: AppTypography.raleway14RedBold,
         ));
   }
 }
@@ -161,21 +162,22 @@ class CustomDivider extends StatelessWidget {
           width: 116.0.w,
           child: const Divider(
             thickness: 3,
-            color: Palette.greyB,
+            color: Palette.greyC,
           ),
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 8.0.h),
           child: Text(
             'OR',
-            style: AppTypography.bodyMediumBold.copyWith(color: Palette.greyA),
+            style:
+                AppTypography.raleway14DarkBold.copyWith(color: Palette.greyA),
           ),
         ),
         SizedBox(
           width: 116.0.w,
           child: const Divider(
             thickness: 3,
-            color: Palette.greyB,
+            color: Palette.greyC,
           ),
         ),
       ],

@@ -1,23 +1,22 @@
 abstract class AppUrls {
   //! baseUrl
   static const String _baseUrl =
-      "https://bilaldollan.pythonanywhere.com";
+      "https://bilaldollan.pythonanywhere.com/api/v1";
 
   //! auth
-  static const String userSignUp = '$_baseUrl/api/v1/user/signup/';
-  static const String userLogin = '$_baseUrl/accounts/login/';
+  static const String userSignUp = '$_baseUrl/user/signup/';
+  static const String userLogin = '$_baseUrl/user/login/';
   static const String userLogOut = '$_baseUrl/accounts/logout/';
-  static const String requestOtp = '$_baseUrl/accounts/request-otp/';
-  static const String verifyOtp = '$_baseUrl/accounts/verify-otp/';
+  static const String requestSignUpOtp = '$_baseUrl/user/send/otp/';
+  static const String verifyOtp = '$_baseUrl/user/verify/otp/';
   static const String changePassword = '$_baseUrl/accounts/change-password/';
-  static const String refreshAccessToken =
-      '$_baseUrl/accounts/api/token/refresh/';
+  static const String refreshAccessToken = '$_baseUrl/user/token/refresh/';
 
   //! profile
-  static const String profile = '$_baseUrl/accounts/profile/';
+  static const String profile = '$_baseUrl/user/update/';
 
   //! profile
-  static const String getUserData = '$_baseUrl/accounts/profile/';
+  static const String getUserData = '$_baseUrl/user/information/';
 
   //! blogs
   static const String getBlogs = '$_baseUrl/blogs/';

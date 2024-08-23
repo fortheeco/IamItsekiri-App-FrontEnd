@@ -44,7 +44,7 @@ showBanner({
 
       //! THE CONTENT
       content: Text(
-        maxLines: 50,
+        maxLines: 5,
         theMessage,
         style: TextStyle(
           fontSize: 14.sp,
@@ -77,13 +77,14 @@ showBanner({
             ),
           ),
         ),
+        20.sbH
       ],
     ),
   );
 
   //! DISMISS AFTER 2 SECONDS
   Timer(
-    dismissIn ?? const Duration(milliseconds: 2500),
+    dismissIn ?? const Duration(milliseconds: 5000),
     () => messenger?.hideCurrentMaterialBanner(),
   );
 }

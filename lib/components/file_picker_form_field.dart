@@ -45,6 +45,7 @@ class FilePickerFormField extends FormField<File> {
                   ),
                 7.sbH,
                 Container(
+                  height: 52.h,
                   padding: EdgeInsets.all(0.w),
                   decoration: BoxDecoration(
                     border: Border.all(
@@ -59,6 +60,7 @@ class FilePickerFormField extends FormField<File> {
                         padding: EdgeInsets.all(14.w),
                         elevation: 0,
                         onPressed: () async {
+                          FocusManager.instance.primaryFocus?.unfocus();
                           FilePickerResult? result =
                               await FilePicker.platform.pickFiles(
                             type: FileType.custom,

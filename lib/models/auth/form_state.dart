@@ -3,7 +3,7 @@ import 'dart:io';
 class AuthFormState {
   final String email;
   final String password;
-  final int phone;
+  final String phone;
   final String name;
   final String nickname;
   final File identification;
@@ -12,7 +12,7 @@ class AuthFormState {
   final String? errorMessage;
 
   AuthFormState({
-    this.phone = 0,
+    this.phone = '',
     this.name = '',
     this.nickname = '',
     required this.identification,
@@ -28,7 +28,7 @@ class AuthFormState {
     String? password,
     bool? isLoading,
     String? errorMessage,
-    int? phone,
+    String? phone,
     String? name,
     String? nickname,
     File? identification,
